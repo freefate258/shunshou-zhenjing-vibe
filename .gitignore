@@ -1,0 +1,24 @@
+node_modules/
+.toolchain/
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+
+# Codex / 本地环境痕迹
+.openai/
+
+# 大体积素材原图（91M 原画 + 32M 参考图），需要时单独分发
+assets/art-originals/
+assets/art-references/
+
+# 二进制安装包，正式下载走 Releases 页
+releases/*.apk
+releases/*.zip
+releases/**/*.apk
+releases/**/*.zip
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+*.log

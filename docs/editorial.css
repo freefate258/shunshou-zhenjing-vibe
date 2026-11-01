@@ -1,0 +1,108 @@
+/* Visible image elements keep chapter art above the card background. */
+.page-art { display: none; }
+body.study-active .page-art {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+body.study-active::before {
+  z-index: 1;
+  background: #e7eef380;
+  filter: none;
+}
+body.study-active .app { position: relative; z-index: 2; }
+
+body.study-active .word-card::before, .module::before { display: none; }
+body.study-active .word-card > .study-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+body.study-active .word-card::after { z-index: 1; }
+body.study-active .word-card > :not(.study-art) { z-index: 2; }
+.module > .module-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  transition: transform .55s cubic-bezier(.17,.84,.25,1), filter .55s ease;
+}
+.module::after { z-index: 1; }
+.module .module-top, .module strong, .module small { z-index: 2; }
+.module strong, .module small { position: relative; }
+@media (hover: hover) and (pointer: fine) {
+  .module:hover .module-art, .module:focus-visible .module-art { transform: scale(1.085); filter: saturate(1.1); }
+}
+
+/* Editorial typography and straight edges. */
+:root, body, button, input, select {
+  font-family: "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 400;
+}
+.hero h1, .section-head h2, .module strong, .panel h2, #manageView h1, .empty h2 {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+body.study-active .word-main h2 {
+  font-family: Georgia, "Iowan Old Style", "Noto Serif", "Times New Roman", serif !important;
+  font-weight: 500;
+  letter-spacing: -.045em;
+}
+.brand strong { font-family: "Noto Serif SC", "Songti SC", Georgia, serif; font-weight: 700; }
+.module strong { font-size: 18px; }
+
+button, .module, .primary, .upload, .outline, .hero, .hero-art, .stats,
+.plan, .panel, .empty, .bottom-action, .word-card, .word-main, .answer,
+.detail, .sound, .mode-tabs button, .choices button, .spell input, .check,
+.cut-list button, .cut-btn, body.study-active header,
+body.study-active .study-top, body.study-active .card-meta > span {
+  border-radius: 0 !important;
+}
+.logo { border-radius: 0; }
+.primary, .upload, .outline, .sound, .mode-tabs button { box-shadow: none !important; }
+.primary:hover, .upload:hover, .outline:hover, .sound:hover { box-shadow: none !important; }
+.module { border-width: 1px; }
+.module.selected { outline-width: 2px; }
+.word-card { border-radius: 0 !important; }
+body.study-active .word-card { border-radius: 0 !important; }
+
+.mode-tabs { gap: 20px; border-bottom: 1px solid #a5b8c4; }
+.mode-tabs button, body.study-active .mode-tabs button:not(.active) {
+  border: 0 !important;
+  border-bottom: 2px solid transparent !important;
+  padding: 11px 2px;
+  background: transparent !important;
+  color: #3c5668;
+  box-shadow: none !important;
+}
+.mode-tabs button.active, body.study-active .mode-tabs button.active {
+  border: 0 !important;
+  border-bottom: 2px solid #274f6b !important;
+  background: transparent !important;
+  color: #193d56 !important;
+  box-shadow: none !important;
+}
+.progress, .progress span { border-radius: 0; }
+body.study-active .word-main, body.study-active .answer, body.study-active .detail { background: #f8fbfcd9; }
+body.study-active .word-card::after { background: linear-gradient(180deg, #eff5f86b 0%, transparent 18%, transparent 53%, #edf4f733 75%, #edf4f799 100%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .module .module-art, .module:hover .module-art, .module:focus-visible .module-art { transform: none !important; }
+}
