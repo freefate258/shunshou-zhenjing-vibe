@@ -10,6 +10,15 @@
 
 ---
 
+## 界面
+
+| | | |
+|:---:|:---:|:---:|
+| <img src="screenshots/01.webp" width="200"> | <img src="screenshots/02.webp" width="200"> | <img src="screenshots/03.webp" width="200"> |
+| <img src="screenshots/04.webp" width="200"> | <img src="screenshots/05.webp" width="200"> | |
+
+---
+
 ## 二十二次不同的翻页
 
 | | | |
